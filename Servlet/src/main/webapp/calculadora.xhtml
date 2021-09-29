@@ -7,8 +7,23 @@
 	</h:head>
 	<h:body>
 		<h:form id="calculadora_form">
-			<p:outputLabel styleClass="display:none"/>
-			<p:inputText id="numbers" required="true"/>
+			<h1>Ingrese los numeros</h1>
+				<p:inputText id="numbers" required="true" value="#{calculadoraBean.values}" binding="#{input}"/>
+				<p:commandButton type="button" value="Calcular"/>
+				<p:commandButton type="button" value="Restart" update="calculadora_form" actionListener="#{calculadoraBean.restart}"/>
+				
+			<h2>Media</h2>
+				<p:outputLabel value="#{calculadoraBean.mean}"/>
+				<p:commandButton type="button" value="View value" update="calculadora_form" actionListener="#{calculadoraBean.calculateMean(input.value)}"/>
+				
+			<h2>Varianza Muestral</h2>
+				<p:outputLabel value="#{calculadoraBean.variance}"/>
+				<p:commandButton type="button" value="View value" update="calculadora_form" actionListener="#{calculadoraBean.calculateVariance(input.value)}"/>
+				
+			<h2>Moda</h2>
+				<p:outputLabel value="#{calculadoraBean.moda}"/>
+				<p:commandButton type="button" value="View value" update="calculadora_form" actionListener="#{calculadoraBean.claculateMode(input.value)}"/>
+
 		</h:form>
 	</h:body>
 </html>

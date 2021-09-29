@@ -9,37 +9,35 @@ import javax.faces.bean.*;
 public class CalculadoraBean {
 	
 	private ArrayList<Integer> valores;
+	public Integer mean;
+	public Integer variance;
+	public Integer moda;
 	
 	//Metodos
 	public void setValores(List<Integer> numeros)
 	{
 		valores = (ArrayList<Integer>) numeros;
 	}
-	public ArrayList<Integer> getValores() {
-		return valores;
-	}
 	
 	public CalculadoraBean() {
 		// TODO Auto-generated constructor stub
 	}
-	private Integer calculateMean(List<Integer> numeros) {
-		Integer res = 0;
+	
+	private void calculateMean(List<Integer> numeros) {
 		for(Integer i : numeros) {
-			res += i;
+			mean += i;
 		}
-		res /= numeros.size();
-		return res;
+		mean /= numeros.size();
 	}
-	private Integer calculateVariance(List<Integer> numeros) {
-		Integer res = 0;
-		Integer media = calculateMean(numeros);
+	
+	private void calculateVariance(List<Integer> numeros) {
 		for(Integer i : numeros) {
-			res += (i-media)^2;
+			variance += (i-mean)^2;
 		}
-		res /= numeros.size();
-		return res;
+		variance /= numeros.size();
 	}
-	private Integer claculateMode(List<Integer> numeros) {
+	
+	private void claculateMode(List<Integer> numeros) {
 		HashMap<Integer,Integer> buscados = new HashMap();
 		Integer res = 0;
 		for(Integer i : numeros) {
@@ -48,15 +46,19 @@ public class CalculadoraBean {
 		for(Integer i : numeros) {
 			buscados.put(i, buscados.get(i) + 1);
 		}
-		res = buscados.get(buscados.keySet().toArray()[0]);
+		moda = buscados.get(buscados.keySet().toArray()[0]);
 		for(Integer j : buscados.keySet()) {
-			if (buscados.get(j) > buscados.get(res)) {
-				res = j;
+			if (buscados.get(j) > buscados.get(moda)) {
+				moda = j;
 			}
 		}
-		return res;
 	}
+	
 	private void restart() {
 		// TODO Auto-generated method stub
+		valores = null;
+		mean = null;
+		variance = null;
+		moda = null;
 	}
 }
