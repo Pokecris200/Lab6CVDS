@@ -8,21 +8,25 @@
 	<h:body>
 		<h:form id="calculadora_form">
 			<h1>Ingrese los numeros</h1>
-				<p:inputText id="numbers" required="true" value="#{calculadoraBean.values}" binding="#{input}"/>
-				<p:commandButton type="button" value="Calcular"/>
-				<p:commandButton type="button" value="Restart" update="calculadora_form" actionListener="#{calculadoraBean.restart}"/>
+				<p:inputText id="numbers" type="text" binding="#{input}"/>
+				<br></br>
+				<p:commandButton type="button" value="Calcular" update="calculadora_form" actionListener="#{CalculadoraBean.calcular(input.value)}"/>
+				<p:commandButton type="button" value="Restart" update="calculadora_form" actionListener="#{CalculadoraBean.restart}"/>
 				
 			<h2>Media</h2>
-				<p:outputLabel value="#{calculadoraBean.mean}"/>
-				<p:commandButton type="button" value="View value" update="calculadora_form" actionListener="#{calculadoraBean.calculateMean(input.value)}"/>
+				<p:outputLabel value="#{CalculadoraBean.mean}"/>
+				<br></br>
+				<p:commandButton type="button" value="View value" update="calculadora_form" actionListener="#{CalculadoraBean.getMean()}"/>
 				
 			<h2>Varianza Muestral</h2>
-				<p:outputLabel value="#{calculadoraBean.variance}"/>
-				<p:commandButton type="button" value="View value" update="calculadora_form" actionListener="#{calculadoraBean.calculateVariance(input.value)}"/>
+				<p:outputLabel value="#{CalculadoraBean.variance}"/>
+				<br></br>
+				<p:commandButton type="button" value="View value" update="calculadora_form" actionListener="#{CalculadoraBean.getVariance()}"/>
 				
 			<h2>Moda</h2>
-				<p:outputLabel value="#{calculadoraBean.moda}"/>
-				<p:commandButton type="button" value="View value" update="calculadora_form" actionListener="#{calculadoraBean.claculateMode(input.value)}"/>
+				<p:outputLabel value="#{CalculadoraBean.moda}"/>
+				<br></br>
+				<p:commandButton type="button" value="View value" update="calculadora_form" actionListener="#{CalculadoraBean.getModa()}"/>
 
 		</h:form>
 	</h:body>
