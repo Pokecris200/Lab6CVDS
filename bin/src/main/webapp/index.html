@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script>
+		function myFunction() {
+		  let x = document.getElementById("numero").value;
+		  let text;
+		  if (isNaN(x) || x < 1 || x > 200) {
+			alert("Entrada no valida");
+			return false
+		  } else {
+			return true;
+		  }
+		  document.getElementById("demo").innerHTML = text;
+		}
+		</script>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+    </body>
+	<form action="my_page" method="get" onsubmit="return myFunction()">
+		<label for="numero">Numero:</label><br>
+		<input type="number" id="numero" name="id"><br>
+		<input type="submit" value="Submit" >
+	</form>
+	
+
+</html>
