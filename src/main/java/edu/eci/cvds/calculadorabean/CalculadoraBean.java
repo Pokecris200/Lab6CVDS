@@ -34,6 +34,7 @@ public class CalculadoraBean {
 	}
 	
 	public void calcular(String numeros) {
+		valores.clear();
 		String[] splitedNumbers = numeros.split(";");
 		for (String j : splitedNumbers) {
 			valores.add(Double.parseDouble(j));
