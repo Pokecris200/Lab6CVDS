@@ -8,10 +8,10 @@ import javax.faces.bean.*;
 @ApplicationScoped
 public class CalculadoraBean {
 	
-	private ArrayList<Double> valores;
-	private Double mean;
-	private Double variance;
-	private Double moda;
+	private ArrayList<Double> valores = new ArrayList();
+	private Double mean = 0.0;
+	private Double variance = 0.0;
+	private Double moda = 0.0;
 	
 	public Double getMean() {
 		return mean;
@@ -34,21 +34,17 @@ public class CalculadoraBean {
 	}
 	
 	public void calcular(String numeros) {
-		
 		String[] splitedNumbers = numeros.split(";");
 		for (String j : splitedNumbers) {
 			valores.add(Double.parseDouble(j));
 		}
-		System.out.println(valores);
 		calculateMean();
-		System.out.println(mean);
 		calculateVariance();
-		System.out.println(variance);
 		claculateMode();
-		System.out.println(moda);
 	}
 	
 	private void calculateMean() {
+		mean = 0.0;
 		for(Double i : valores) {
 			mean += i;
 		}
@@ -56,6 +52,7 @@ public class CalculadoraBean {
 	}
 	
 	private void calculateVariance() {
+		variance = 0.0;
 		for(Double i : valores) {
 			variance += Math.pow(i-mean,2);
 		}
@@ -63,6 +60,7 @@ public class CalculadoraBean {
 	}
 	
 	private void claculateMode() {
+		moda = 0.0;
 		HashMap<Double,Double> buscados = new HashMap();
 		Double res = 0.0;
 		for(Double i : valores) {
@@ -71,7 +69,7 @@ public class CalculadoraBean {
 		for(Double i : valores) {
 			buscados.put(i, buscados.get(i) + 1);
 		}
-		moda = buscados.get(buscados.keySet().toArray()[0]);
+		moda = (Double) buscados.keySet().toArray()[0];
 		for(Double j : buscados.keySet()) {
 			if (buscados.get(j) > buscados.get(moda)) {
 				moda = j;
@@ -81,9 +79,9 @@ public class CalculadoraBean {
 	
 	private void restart() {
 		// TODO Auto-generated method stub
-		valores = null;
-		mean = null;
-		variance = null;
-		moda = null;
+		valores.clear();
+		mean = 0.0;
+		variance = 0.0;
+		moda = 0.0;
 	}
 }
