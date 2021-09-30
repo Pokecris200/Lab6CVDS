@@ -24,7 +24,7 @@ Vaya a CONTINUOUS DEPLOYMENT/Heroku Deployment, y realice los dos pasos indicado
 
 6. Si todo queda correctamente configurado, cada vez que hagan un PUSH al repositorio, CircleCI ejecutará la fase de construcción del proyecto. Para que cuando las pruebas pasen automáticamente se despliegue en Heroku, debe definir en el archivo circle.yml (ubicado en la raíz del proyecto):
 
-![]()
+![](https://github.com/Pokecris200/Lab6CVDS/blob/master/Recursos/Circle%20yml.png)
 
 7. Rectifique que en el pom.xml, en la fase de construcción, se tenga el siguiente plugin (es decir, dentro de <build><plugins>):
 
@@ -39,6 +39,22 @@ Vaya a CONTINUOUS DEPLOYMENT/Heroku Deployment, y realice los dos pasos indicado
 + Procfile
 
 ![](https://github.com/Pokecris200/Lab6CVDS/blob/master/Recursos/Procfile.png)
+9. El ambiente de despliegue contínuo requiere también un archivo de configuración 'circle.yml' en la raíz del proyecto, en el cual se indica (entre otras cosas) en qué aplicación de Heroku se debe desplegar la aplicación que está en GitHUB. Puede basarse en el siguiente archivo, teniendo en cuenta que se debe ajustar el parámetro 'appname': https://github.com/PDSW-ECI/base-proyectos/blob/master/circle.yml
+
+![](https://github.com/Pokecris200/Lab6CVDS/blob/master/Recursos/Circle%20yml.png)
+
+10. Haga commit y push de su repositorio local a GitHub. Abra la consola de CircleCI y verifique que el de descarga, compilación, y despliegue. Igualmente, verifique que la aplicación haya sido desplegada en Heroku.
+
+
+11. Ahora, va a integrar un entorno de Análisis de Calidad de Código a su proyecto, el cual detecte contínuamente defectos asociados al mismo. Autentíquese en CODACY con su cuenta de GitHUB, y agregue el proyecto antes creado.
+
+
+
+12. Cree un archivo README.md para su proyecto, y asocie al mismo dos 'badges', que permitan conocer el estado del proyecto en cualquier momento: uno para Circle.CI, y otro para CODACY. El proyecto usado como referencia, ya incluye dichos 'badges' en su archivo README: https://github.com/PDSW-ECI/base-proyectos
+
+[![CircleCI](https://circleci.com/gh/Pokecris200/base-proyectos.svg?style=svg)](https://circleci.com/gh/Pokecris200/Lab6CVDS)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ec360b52000947dbbadfb42bbec52866)](https://www.codacy.com/gh/Pokecris200/Lab6CVDS/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Pokecris200/Lab6CVDS&amp;utm_campaign=Badge_Grade)
 
 ## Link heroku
 
