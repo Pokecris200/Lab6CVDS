@@ -1,4 +1,5 @@
 edu\eci\cvds\servlet\model\Todo.class
 edu\eci\cvds\servlet\SampleServlet.class
 edu\eci\cvds\servlet\Service.class
+edu\eci\cvds\calculadorabean\CalculadoraBean.class
 edu\eci\cvds\servlet\AltServlet.class

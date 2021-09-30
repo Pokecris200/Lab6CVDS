@@ -8,20 +8,20 @@ import javax.faces.bean.*;
 @ApplicationScoped
 public class CalculadoraBean {
 	
-	private ArrayList<Integer> valores;
-	private Integer mean;
-	private Integer variance;
-	private Integer moda;
+	private ArrayList<Double> valores;
+	private Double mean;
+	private Double variance;
+	private Double moda;
 	
-	public Integer getMean() {
+	public Double getMean() {
 		return mean;
 	}
 	
-	public Integer getVariance() {
+	public Double getVariance() {
 		return variance;
 	}
 	
-	public Integer getModa() {
+	public Double getModa() {
 		return moda;
 	}
 	
@@ -35,9 +35,9 @@ public class CalculadoraBean {
 	
 	public void calcular(String numeros) {
 		
-		String[] temp = numeros.split(";");
-		for (String j:temp) {
-			valores.add(Integer.parseInt(j));
+		String[] splitedNumbers = numeros.split(";");
+		for (String j : splitedNumbers) {
+			valores.add(Double.parseDouble(j));
 		}
 		System.out.println(valores);
 		calculateMean();
@@ -49,30 +49,30 @@ public class CalculadoraBean {
 	}
 	
 	private void calculateMean() {
-		for(Integer i : valores) {
+		for(Double i : valores) {
 			mean += i;
 		}
 		mean /= valores.size();
 	}
 	
 	private void calculateVariance() {
-		for(Integer i : valores) {
-			variance += (i-mean)^2;
+		for(Double i : valores) {
+			variance += Math.pow(i-mean,2);
 		}
 		variance /= valores.size();
 	}
 	
 	private void claculateMode() {
-		HashMap<Integer,Integer> buscados = new HashMap();
-		Integer res = 0;
-		for(Integer i : valores) {
-			buscados.put(i, 0);
+		HashMap<Double,Double> buscados = new HashMap();
+		Double res = 0.0;
+		for(Double i : valores) {
+			buscados.put(i, 0.0);
 		}
-		for(Integer i : valores) {
+		for(Double i : valores) {
 			buscados.put(i, buscados.get(i) + 1);
 		}
 		moda = buscados.get(buscados.keySet().toArray()[0]);
-		for(Integer j : buscados.keySet()) {
+		for(Double j : buscados.keySet()) {
 			if (buscados.get(j) > buscados.get(moda)) {
 				moda = j;
 			}

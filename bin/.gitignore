@@ -1,8 +1,9 @@
-target
-.DS_Store
-/nbproject/
-.idea
-*.iml
-/.settings/
-.classpath
-.proyect
+/target/
+/.circleci/
+/.gitignore
+/.project
+/README.md
+/Recursos/
+/config.yml
+/pom.xml
+/src/

@@ -1,5 +1,0 @@
-0:0:0:0:0:0:0:1 - - [28/Sep/2021:23:18:00 -0500] "GET / HTTP/1.1" 200 66 http-bio-8080-exec-1 2770
-0:0:0:0:0:0:0:1 - - [28/Sep/2021:23:18:01 -0500] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-3 3
-0:0:0:0:0:0:0:1 - - [28/Sep/2021:23:18:38 -0500] "GET /calculadora.xhtml HTTP/1.1" 200 509 http-bio-8080-exec-5 5
-0:0:0:0:0:0:0:1 - - [28/Sep/2021:23:19:02 -0500] "GET /calculadora.xhtml HTTP/1.1" 200 388 http-bio-8080-exec-8 140
-0:0:0:0:0:0:0:1 - - [28/Sep/2021:23:20:17 -0500] "GET /calculadora.xhtml HTTP/1.1" 304 - http-bio-8080-exec-2 32
